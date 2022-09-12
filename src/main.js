@@ -30,6 +30,19 @@ exports.handler = async (event) => {
       interaction.type === InteractionType.APPLICATION_COMMAND
     ) {
       switch (interaction.data.name) {
+        case "ping":
+          return {
+            statusCode: 200,
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+              data: {
+                content: "Pong!",
+              },
+            }),
+          };
         case "hello":
           const Discord = new DiscordClient({
             intents: [DiscordClientIntents.Guilds],
