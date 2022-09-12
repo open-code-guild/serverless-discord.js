@@ -25,6 +25,7 @@ exports.handler = async (event) => {
     }
 
     const interaction = JSON.parse(event.body);
+    console.log(interaction);
     if (
       interaction &&
       interaction.type === InteractionType.APPLICATION_COMMAND
