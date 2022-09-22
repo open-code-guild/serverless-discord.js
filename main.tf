@@ -105,7 +105,7 @@ resource "aws_lambda_function" "serverless-discord-js" {
   role             = aws_iam_role.serverless-discord-js.arn
   handler          = "main.handler"
   runtime          = "nodejs16.x"
-  memory_size      = 128
+  memory_size      = 1024
   package_type     = "Zip"
   filename         = data.archive_file.serverless-discord-js.output_path
   source_code_hash = data.archive_file.serverless-discord-js.output_base64sha256
